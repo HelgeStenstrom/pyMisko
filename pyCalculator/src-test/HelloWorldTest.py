@@ -1,6 +1,6 @@
 # Inspired by
 # https://testing.googleblog.com/2009/11/how-to-get-started-with-tdd.html
-# AllTests.java
+# HelloWorldTest.java
 
 import unittest
 

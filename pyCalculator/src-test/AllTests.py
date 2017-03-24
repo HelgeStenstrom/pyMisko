@@ -2,14 +2,19 @@
 # https://testing.googleblog.com/2009/11/how-to-get-started-with-tdd.html
 # AllTests.java
 
-import calculator.CalculatorControllerTest as CCT # Heter det så i Python?
+
+from calculator.CalculatorControllerTest import *
+from HelloWorldTest import *
+
 import unittest
-import HelloWorldTest
+
 
 def suite():
     s = unittest.TestSuite()
-    s.addTest(HelloWorldTest.HelloWorldTest('testHelloWorld'))
-    s.addTest(CCT.CalculatorControllerTest('testItShouldInitializeToZero'))
+
+    # I would rather add the whole class with its tests; addTests.
+    s.addTest(HelloWorldTest('testHelloWorld'))
+    s.addTest(CalculatorControllerTest('testItShouldInitializeToZero'))
     return s
 
 class AllTests:
