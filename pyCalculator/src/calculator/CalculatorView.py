@@ -1,57 +1,23 @@
-package calculator;
+# Originalet till denna fil är i Java. Kanske jag borde skriva om det
+# till något GUI-framework som Python förstår, på både Windows och
+# Mac. Finns sådana?
 
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+# Annars får jag försöka göra det i ett terminalfönster.
 
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+# Jag behöver strängt taget inte se något annat än min display;
+# knapparna behövs inte.
 
-public class CalculatorView {
+class CalculatorView:
 
-	private static final String[] BUTTON_LABELS = {
-		"7", "8", "9", "+",
-		"4", "5", "6", "-",
-		"1", "2", "3", "*",
-		"0", ".", "=", "\u00F7",
-		"C", "\u00B1", "\u221A", "^"};
+    def __init__(self, model, controller):
+        self.displayLabel = ""
+        self.model = model
+        self.controller = controller
 
-	private final JLabel displayLabel = new JLabel("", JLabel.RIGHT);
+	public void
+    def materializeView(self, container):
+        pass
 
-	private final CalculatorModel model;
+    def updateView(self):
+        displayLabel.setText(model.getDisplay())
 
-  private final CalculatorController controller;
-
-	public CalculatorView(CalculatorModel model, CalculatorController controller) {
-		this.model = model;
-    this.controller = controller;
-	}
-
-	public void materializeView(Container container) {
-		container.setLayout(new BorderLayout());
-		container.add(displayLabel, BorderLayout.NORTH);
-		JPanel buttons = new JPanel();
-		buttons.setLayout(new GridLayout(5, 4));
-		container.add(buttons, BorderLayout.CENTER);
-		for (int i = 0; i < BUTTON_LABELS.length; i++) {
-			String label = BUTTON_LABELS[i];
-			JButton button = new JButton(label);
-			buttons.add(button);
-			button.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-					String key = e.getActionCommand();
-					controller.push(key.charAt(0));
-					updateView();
-				}
-			});
-		}
-	}
-
-	public void updateView() {
-		displayLabel.setText(model.getDisplay());
-	}
-
-}

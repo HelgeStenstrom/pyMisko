@@ -4,12 +4,9 @@
 
 import unittest
 
-print( "HelloWorldTest is loaded")
-
 class HelloWorldTest (unittest.TestCase):
     def testHelloWorld(self):
-        print ("testHelloWorld called")
-        self.assertTrue(True, "Hello")
+        self.assertTrue(True, "Hello would be written if not True")
 
 if __name__ == "__main__":
     unittest.main()

@@ -6,7 +6,6 @@ import CalculatorController as c
 import CalculatorModel as m
 import unittest
 
-print("CalculatorControllerTest is loaded")
 
 class CalculatorControllerTest (unittest.TestCase):
     def testItShouldInitializeToZero (self):
@@ -14,6 +13,11 @@ class CalculatorControllerTest (unittest.TestCase):
         controller = c.CalculatorController(model)
         controller.push('C')
         self.assertEqual("0.", model.getDisplay())
+
+    def qtestItShouldConcatinateNumberPresses (self):
+        model = m.CalculatorModel()
+        controller = c.CalculatorController(model)
+        raise NotImplementedError
         
 
 
