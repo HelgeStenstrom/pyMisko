@@ -1,14 +1,6 @@
-package calculator;
+class CalculatorModel:
+    def getDisplay(self):
+        return self.display
 
-public class CalculatorModel {
-
-	private String display;
-
-	public String getDisplay() {
-		return display;
-	}
-
-	public void setDisplay(String display) {
-		this.display = display;
-	}
-}
+    def setDisplay(self, display):
+        self.display = display;
