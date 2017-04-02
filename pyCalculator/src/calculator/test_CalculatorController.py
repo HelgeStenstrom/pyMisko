@@ -12,7 +12,15 @@ class CalculatorControllerTest (unittest.TestCase):
         model = m.CalculatorModel()
         controller = c.CalculatorController(model)
         controller.push('C')
-        self.assertEqual("0.", model.getDisplay())
+        self.assertEqual("0", model.getDisplay())
+
+    def testItShouldAddDigitsAfterClear(self):
+        model = m.CalculatorModel()
+        controller = c.CalculatorController(model)
+        controller.push('C')
+        controller.push('2')
+        self.assertEqual("2", model.getDisplay())
+        
 
     def qtestItShouldConcatinateNumberPresses (self):
         model = m.CalculatorModel()

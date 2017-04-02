@@ -3,4 +3,4 @@ class CalculatorModel:
         return self.display
 
     def setDisplay(self, display):
-        self.display = display;
+        self.display = display
